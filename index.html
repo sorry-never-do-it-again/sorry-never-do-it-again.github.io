@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I'm Sorry ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+    }
+
+    .container {
+        text-align: center;
+        color: white;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        animation: floatText 3s infinite ease-in-out;
+    }
+
+    p {
+        font-size: 1.4rem;
+        line-height: 1.8;
+        max-width: 600px;
+        margin: auto;
+        animation: fadeIn 3s ease-in-out;
+    }
+
+    .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        transform: rotate(45deg);
+        animation: floatUp 6s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -10px;
+        left: 0;
+    }
+
+    .heart::after {
+        left: -10px;
+        top: 0;
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(100vh) rotate(45deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-10vh) rotate(45deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes floatText {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 25px;
+        background: white;
+        color: #ff5e78;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ffe0e6;
+        transform: scale(1.05);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>I'm Really Sorry ❤️</h1>
+    <p>
+        I won’t do it again. <br>
+        I promise I’ll try my best to make you happy, <br>
+        and I’ll always care about you. <br>
+        Please give me one more chance 💕
+    </p>
+
+    <button onclick="showMessage()">Click Me 🥺</button>
+</div>
+
+<script>
+    function showMessage() {
+        alert("I truly mean it ❤️ I'll make you happy forever!");
+    }
+
+    // Create floating hearts
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
